@@ -1,7 +1,3 @@
-const dataSet = async () => {
-    return await getData();
-};
-
 let currentInput = '';
 
 function loadHeader() {
@@ -25,12 +21,11 @@ function loadHeader() {
 async function filterAndSearch() {
     const input = $('#header-img input').value.toLowerCase();
     checkInput(input);
-    const festivals = (await dataSet()).festivals;
     currentInput = input;
-    const filteredFestivals = (await festivals).filter(({name, location, date, genre}) => 
-        [name, location, date, genre].some(attr => attr.toLowerCase().includes(input))
+    const filteredFestivals = (await getFestivals()).filter(({NAME, STADT, DATUM, GENRES}) => 
+        [NAME, STADT, DATUM, GENRES].some(attr => attr.toLowerCase().includes(input))
     );
-
+    log(filteredFestivals);
     loadFilteredEventCards(filteredFestivals);
 }
 
@@ -66,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputField = $('#header-img input');
         
         if(!inputField) return error("Input field not found");
-        if (inputField) {
+        if(inputField) {
             inputField.addEventListener('input', debounce(function() {
                 filterAndSearch();
             }, 250));

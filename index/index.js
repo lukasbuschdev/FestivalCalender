@@ -292,15 +292,20 @@ function renderAdBlock(adUrl) {
 async function openSelectedFestival(id) {
     const selectedFestival = await checkFestivalId(id);
     renderSelectedFestival(selectedFestival);
+    log(id)
 }
 
 async function checkFestivalId(id) {
     const festivalId = parseInt(id);
+    if(typeof festivalId === NaN) {
+        log(id)
+    }
     const festivals = await getFestivals();
+    log(festivals)
     const festivalExists = festivals.find(festival => festival.id === festivalId);    
     
     if(festivalExists) return festivalExists;
-    if(!festivalExists) return error(`No festival found!`);    
+    if(!festivalExists) return error(`No festival found! ${id}`);    
 }
 
 function renderSelectedFestival(selectedFestival) {
