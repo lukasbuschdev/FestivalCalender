@@ -16,6 +16,7 @@ function loadFilters() {
         <div class="open-filter-btn-containter row">
             <button onclick="openFilterButtons()">Filter</button>
             <button id="reset-filter-btn" class="d-none" onclick="resetSelectedFilter()">Filter löschen</button>
+            <img class="dark-mode-btn row gap-5" onclick="checkDarkMode()" src="../assets/icons/moon.png">
         </div>
         <div class="filters filters-closed row flex-center">
             <button id="country">Land</button>
@@ -161,8 +162,8 @@ function checkNumberOfItems() {
     const filterListContainer = $('#filter-list-items');
     let filterList = [...$$('.list-item-container')];
 
-    if (filterList.length >= 10) filterListContainer.style.justifyContent = "flex-start";
-    if (filterList.length < 10) filterListContainer.style.justifyContent = "center";   
+    if(filterList.length >= 10) filterListContainer.style.justifyContent = "flex-start";
+    if(filterList.length < 10) filterListContainer.style.justifyContent = "center";   
 }
 
 function closeFilter() {
@@ -227,10 +228,9 @@ function renderEvents({ LAND, id, NAME, DATUM, STADT, KATEGORIE }) {
                         <span class="event-country">${highlightIfContains(LAND, currentInput)}</span>
                     </div>
                     <div class="row">
-                        <span class="event-location">${highlightIfContains(STADT, currentInput)}</span>
+                        <span class="event-genre">${highlightIfContains(KATEGORIE, currentInput)}</span>
                         <span class="event-date">${processDate(DATUM)}</span>
                     </div>
-                    <span class="event-genre">${highlightIfContains(KATEGORIE, currentInput)}</span>
                 </div>
             </div>
         </div>
@@ -289,8 +289,8 @@ function renderSelectedFestival(selectedFestival) {
 
 function selectedFestivalTemplate({ LAND, BUNDESLAND, NAME, DATUM, STADT, GENRES, DAUER, KATEGORIE, WO, BESUCHER, URL }) {
     return /*html*/ `
-        <div class="selected-festival-container-lower flex-center">
-            <div class="selected-event-card column">
+        <div class="selected-festival-container-lower flex-center" onclick="closeSelectedFestival()">
+            <div class="selected-event-card column" onclick="event.stopPropagation()">
                 <img class="selected-event-card-close grid-center" src="../assets/icons/close.svg" alt="X" onclick="closeSelectedFestival()">
                 <span class="selected-event-name">${NAME}</span>
 
@@ -373,11 +373,15 @@ function activateDarkMode() {
     const allEventCards = $$('.event-card');
     const allFilters = $$('.filters button');
 
+    $('.dark-mode-btn').setAttribute('src', '../assets/icons/sun.png');
+
     $('body').classList.add('dark-mode-body');
     $('#header-img').classList.add('dark-mode-header');
 
     allEventCards.forEach(eventCard => eventCard.classList.add('dark-mode-card'));
     allFilters.forEach(filter => filter.classList.add('dark-mode-filter'));
+
+    saveDarkModeSetting();
 }
 
 function deactivateDarkMode() {
@@ -385,11 +389,15 @@ function deactivateDarkMode() {
     const allEventCards = $$('.event-card');
     const allFilters = $$('.filters button');
 
+    $('.dark-mode-btn').setAttribute('src', '../assets/icons/moon.png');
+
     $('body').classList.remove('dark-mode-body');
     $('#header-img').classList.remove('dark-mode-header');
 
     allEventCards.forEach(eventCard => eventCard.classList.remove('dark-mode-card'));
     allFilters.forEach(filter => filter.classList.remove('dark-mode-filter'));
+
+    saveDarkModeSetting();
 }
 
 function selectedCardDarkMode() {
@@ -412,8 +420,45 @@ function filterListDarkMode() {
 }
 
 function applyDarkModeToEventCards() {
-    if (darkModeActive) {
+    if(darkModeActive) {
         const allEventCards = $$('.event-card');
         allEventCards.forEach(eventCard => eventCard.classList.add('dark-mode-card'));
     }
+}
+
+
+
+// ################################################################################
+// SAVE DARK MODE TO LOCAL STORAGE / EXPERIMENTAL
+// ################################################################################
+
+function saveDarkModeSetting() {
+    localStorage.setItem('darkMode', darkModeActive.toString());
+}
+
+function loadDarkModeSetting() {
+    const storedValue = localStorage.getItem('darkMode');
+    darkModeActive = storedValue === 'true';
+
+    darkModeActive ? activateDarkMode() : deactivateDarkMode();
+}
+
+
+
+// ################################################################################
+// INTERSECTION OBSERVER FOR SCROLL UP BUTTON
+// ################################################################################
+
+function toggleScrollUpButton() {
+    $('#scroll-up').classList.toggle('d-none');
+}
+
+const intObserver = new IntersectionObserver((entries) => {
+    toggleScrollUpButton();
+}, { threshold: 0, rootMargin: "250px" });
+
+
+function intObserverSetup() {
+    const el = $('header');
+    intObserver.observe(el);
 }

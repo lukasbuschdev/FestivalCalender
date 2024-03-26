@@ -18,12 +18,8 @@
     position: absolute;
     box-sizing: border-box;
     right: 5%;
-    padding: 3px 10px 4px 5px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    color: white;
-    text-align: center;
-    border: 1px solid var(--clr-pink);
+    padding: 5px;
+    height: 40px;
     border-radius: 999px;
     background-color: var(--clr-pink);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -31,19 +27,9 @@
 }
 
 .dark-mode-btn:hover {
+    cursor: pointer;
     background-color: var(--clr-pink-hover);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode-btn::before {
-    content: '';
-    background-image: url('../assets/icons/darkmode.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-    height: 20px;
-    width: 20px;
 }
 
 .dark-mode-body {
@@ -93,7 +79,8 @@
 
 .open-filter-btn-containter button {
     box-sizing: border-box;
-    padding: 5px 15px 8px 15px;
+    padding: 7px 15px 10px 15px;
+    font-size: 1.2rem;
     font-weight: 600;
     color: white;
     text-align: center;
@@ -280,7 +267,7 @@
 }
 
 .event-name {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     text-align: start;
     font-weight: 600;
     padding: 5px 0 9px 0px;
@@ -291,10 +278,16 @@
     width: 100%;
 }
 
+.event-country, 
+.event-genre {
+    font-size: 1rem;
+}
+
 .event-date {
     align-self: center;
     text-align: center;
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .card-image {
@@ -302,15 +295,14 @@
 }
 
 .card-image img {
-    height: 200px;
+    height: 220px;
     width: 100%;
     object-fit: cover;
     border-radius: 18px 18px 0 0;
 }
 
 .event-country-container img {
-    height: 20px;
-    width: 25px;
+    width: 30px;
     object-fit: contain;
 }
 
@@ -492,6 +484,31 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+
+
+/* ############################################################ */
+/* SCROLL UP BUTTON  */
+/* ############################################################ */
+
+#scroll-up {
+    content: '';
+    background-image: url(../assets/icons/scroll-up.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    position: fixed;
+    inset: auto 5% 2rem auto;
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--clr-pink);
+    z-index: 999;
+}
+
+#scroll-up:hover {
+    background-color: var(--clr-pink-hover);
 }
 
 

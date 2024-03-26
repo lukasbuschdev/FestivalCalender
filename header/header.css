@@ -10,21 +10,21 @@ header {
 
 .presented-logo {
     position: absolute;
-    right: 1%;
-    top: 5%;
+    width: fit-content;
+    inset: auto 2% 15% auto;
     z-index: 1;
-    background-color: rgba(256,256,256, 0.5);
+    background-color: rgba(256, 256, 256, 0.9);
     border-radius: 15px;
     padding: 5px 5px 5px 10px;
 }
 
 #presented-by {
-    width: 100px;
+    width: 70px;
     object-fit: contain;
 }
 
 #vamida-logo {
-    width: 180px;
+    width: 150px;
     object-fit: contain;
 }
 
@@ -36,14 +36,14 @@ header {
 #header-img {
     height: 100%;
     width: 100%;
-    background-image: url('../assets/img/headerBG2.jpeg');
+    background-image: url(../assets/img/headerBG2.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     filter: brightness(1);
     transition: all var(--transition-fast);
@@ -67,19 +67,20 @@ header {
 }
 
 header input {
-    height: 40px;
-    width: 35%;
     box-sizing: border-box;
-    background-image: url('../assets/icons/loupe.svg');
-    background-position: 10px center;
-    background-repeat: no-repeat;
-    padding: 0 0 3px 35px;
-    height: 40px;
+    position: relative;
+    height: 45px;
+    width: 35%;
     max-width: 300px;
     min-width: 220px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0 0 3px 35px;
+    background-image: url(../assets/icons/loupe.svg);
+    background-position: 10px center;
+    background-repeat: no-repeat;
     border: 2px solid var(--clr-pink);
     border-radius: 999px;
-    position: relative;
     transition: all 75ms ease-in-out;
 }
 
@@ -106,7 +107,7 @@ header input:hover {
     background-size: cover;
     background-color: var(--clr-pink);
     right: 15px;
-    top: 10px;
+    top: 13px;
 }
 
 .show-close #close-icon {

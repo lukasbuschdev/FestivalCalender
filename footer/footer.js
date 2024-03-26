@@ -18,9 +18,22 @@ function loadFooter() {
                 <div>
                     <a target="_blank" href="https://www.vamida.at/datenschutzerklarung">Datenschutz</a>
                 </div>
+                <div>
+                    <a onclick="openIconLinks()">ICONS</a>
+                </div>
             </div>
         </footer> 
     `;
 
     includeTemplate(footerContainer, footerContent);
+}
+
+function openIconLinks() {
+    $('.links-popup').classList.remove('d-none');
+    $('#footer-container').classList.add('d-none'); //prevents buggy scroll - to be solved !
+}
+
+function closeIconLinks() {
+    $('.links-popup').classList.add('d-none');
+    $('#footer-container').classList.remove('d-none');
 }
