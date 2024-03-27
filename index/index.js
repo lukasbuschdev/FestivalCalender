@@ -177,7 +177,6 @@ function closeFilter() {
 async function loadEventCards() {
     const festivals = await getFestivals();
 
-    log(festivals)
     let allEventCardsHTML = '';
     let counter = 0;
 

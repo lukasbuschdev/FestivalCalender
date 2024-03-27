@@ -45,6 +45,33 @@ footer a:hover {
 
 
 
+/* ICONS / LINKS */
+
+.links-popup {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--clr-bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.links-popup a {
+    color: var(--clr-pink);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.links-popup a:hover {
+    color: var(--clr-pink-hover);
+}
+
+
+
 /* FOOTER RESPONSIVE STYLING */
 
 @media(max-width: 400px) {
