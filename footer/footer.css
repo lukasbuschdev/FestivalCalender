@@ -69,16 +69,3 @@ footer a:hover {
 .links-popup a:hover {
     color: var(--clr-pink-hover);
 }
-
-
-
-/* FOOTER RESPONSIVE STYLING */
-
-@media(max-width: 400px) {
-    footer {
-        flex-direction: column !important;
-        padding: 30px 10px;
-        height: fit-content;
-        gap: 30px;
-    }
-}
