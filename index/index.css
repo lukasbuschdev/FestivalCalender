@@ -301,7 +301,6 @@
     width: 100%;
     object-fit: cover;
     border-radius: 18px 18px 0 0;
-    filter: blur(1px);
 }
 
 .event-country-container img {
