@@ -10,68 +10,7 @@
 
 
 
-/* ############################################################### */
-/* DARK MODE */
-/* ############################################################### */
-
-.dark-mode-btn {
-    position: absolute;
-    box-sizing: border-box;
-    right: 5%;
-    padding: 5px;
-    height: 40px;
-    border-radius: 999px;
-    background-color: var(--clr-pink);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    transition: all var(--transition-medium) ease-in-out;
-}
-
-.dark-mode-btn:hover {
-    cursor: pointer;
-    background-color: var(--clr-pink-hover);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode-body {
-    background-color: var(--clr-bg-dark-mode);
-}
-
-.dark-mode-header {
-    filter: brightness(0.9) !important;
-}
-
-.dark-mode-card {
-    background-color: var(--clr-bg-card-dark-mode) !important;
-    color: var(--clr-white);
-}
-
-.dark-mode-selected-card {
-    background-color: var(--clr-bg-dark-mode) !important;
-    color: var(--clr-white);
-}
-
-.dark-mode-filter {
-    background-color: var(--clr-pink) !important;
-    color: var(--clr-white) !important;
-}
-
-.dark-mode-filter-list-card {
-    background-color: var(--clr-bg-dark-mode) !important;
-}
-
-.dark-mode-filter-list-item {
-    color: var(--clr-white) !important;
-}
-
-.dark-mode-filter-list-item:hover {
-    color: var(--clr-pink) !important;
-}
-
-
-
-/* ############################################# */
 /* FILTER BUTTONS SECTION */
-/* ############################################# */
 
 .open-filter-btn-containter {
     gap: 10px;
@@ -144,9 +83,7 @@
 
 
 
-/* ########################################################### */
 /* FILTER LIST CONTAINER / POP UP */
-/* ########################################################### */
 
 #filter-list-container {
     position: fixed;
@@ -214,9 +151,7 @@
 
 
 
-/* ########################################################### */
 /* EVENTS / CARDS SECTION */
-/* ########################################################### */
 
 #event-cards-container {
     flex-wrap: wrap;
@@ -310,9 +245,7 @@
 
 
 
-/* ############################################################### */
 /* AD CONTAINER */
-/* ############################################################### */
 
 .ad-container {
     width: 90%;
@@ -327,9 +260,7 @@
 
 
 
-/* ############################################################### */
 /* SELECTED FESTIVAL  */
-/* ############################################################### */
 
 #selected-festival-container-upper {
     position: fixed;
@@ -389,8 +320,6 @@
     text-align: end;
     padding: 5px 10px;
     border-bottom: 1px solid var(--clr-pink);
-    /* border-radius: 15px; */
-    /* background-color: #ebebeb; */
 }
 
 .selected-event-genre {
@@ -490,9 +419,7 @@
 
 
 
-/* ############################################################ */
 /* SCROLL UP BUTTON  */
-/* ############################################################ */
 
 #scroll-up {
     content: '';
@@ -501,7 +428,7 @@
     background-repeat: no-repeat;
     background-size: 25px 25px;
     position: fixed;
-    inset: auto 5% 2rem auto;
+    inset: auto 2% 2rem auto;
     width: 3rem;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -510,5 +437,6 @@
 }
 
 #scroll-up:hover {
+    cursor: pointer;
     background-color: var(--clr-pink-hover);
 }

@@ -1,6 +1,4 @@
-// ##########################################################
 // INCLUDING THE TEMPLATE
-// ##########################################################
 
 const includeTemplate = (selector, htmlContent) => {
     const targetElement = selector;
@@ -11,9 +9,7 @@ const includeTemplate = (selector, htmlContent) => {
 
 
 
-// ##########################################################
 // ADS, MONTHS, IMAGES, FLAGS
-// ##########################################################
 
 const ads = [
     {

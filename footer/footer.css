@@ -60,12 +60,12 @@ footer a:hover {
     gap: 20px;
 }
 
-.links-popup a {
+.links-popup-container a {
     color: var(--clr-pink);
     font-size: 1.5rem;
     font-weight: 500;
 }
 
-.links-popup a:hover {
+.links-popup-container a:hover {
     color: var(--clr-pink-hover);
 }

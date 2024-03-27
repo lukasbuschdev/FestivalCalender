@@ -28,9 +28,29 @@ function loadFooter() {
     includeTemplate(footerContainer, footerContent);
 }
 
+function renderLinks() {
+    const linksContainer = $('.links-popup');
+    linksContainer.innerHTML = '';
+
+    const linksContent = /*html*/ `
+        <img class="selected-event-card-close flex-center" onclick="closeIconLinks()" src="../assets/icons/close.svg" alt="X">
+
+        <div class="links-popup-container column gap-20">
+            <a href="https://www.flaticon.com/free-icons/up-arrow" title="up arrow icons">"Up arrow icon" created by 'Freepik' - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">"Sun icon" created by 'Good Ware' - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">"Moon icon" created by 'Good Ware' - Flaticon</a>
+            <!-- <a href="https://www.flaticon.com/free-icons/calendar" title="calendar icons">"Calendar icon" created by 'Freepik' - Flaticon</a> -->
+        </div>
+    `;
+
+    includeTemplate(linksContainer, linksContent);
+}
+
 function openIconLinks() {
     $('.links-popup').classList.remove('d-none');
     $('#footer-container').classList.add('d-none'); //prevents buggy scroll - to be solved !
+
+    renderLinks();
 }
 
 function closeIconLinks() {
