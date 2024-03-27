@@ -1,11 +1,10 @@
 @media(max-width: 800px) {
-    #presented-by {
-        width: 80px;
-        object-fit: contain;
+    .presented-logo {
+        inset: 5% auto auto auto;
     }
     
     #vamida-logo {
-        width: 150px;
+        width: 130px;
         object-fit: contain;
     }
 }
