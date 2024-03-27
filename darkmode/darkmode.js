@@ -1,5 +1,7 @@
 // DARK MODE SECTION
 
+let darkModeActive = false;
+
 function checkDarkMode() {
     if(!darkModeActive) return activateDarkMode();
     if(darkModeActive) return deactivateDarkMode();

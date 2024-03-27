@@ -4,6 +4,8 @@ async function init() {
     loadHeader();
     loadContent();
     loadFooter();
+    loadDarkModeSetting();
+    intObserverSetup();
 }
 
 

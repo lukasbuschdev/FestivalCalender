@@ -7,7 +7,8 @@ const getFestivals = async () => {
 
 async function loadContent() {
     loadFilters();
-    loadEventCards();
+    // loadEventCards();
+    loadFilteredEventCards();
 }
 
 function loadFilters() {
@@ -38,7 +39,8 @@ async function resetSelectedFilter() {
     currentInput = '';
     $('#header-img .input-wrapper').classList.remove('show-close');   
     $('.input-wrapper input').value = '';
-    await loadEventCards();
+    // await loadEventCards();
+    await loadFilteredEventCards();
     $('#reset-filter-btn').classList.add('d-none');
 }
 
@@ -166,33 +168,33 @@ function checkNumberOfItems() {
     if(filterList.length < 10) filterListContainer.style.justifyContent = "center";   
 }
 
-
-
 function closeFilter() {
     const filterListContainer = $('#filter-list-container');
     $('#filter-list-items').innerHTML = ''; 
     filterListContainer.classList.add('d-none');
 }
 
-async function loadEventCards() {
-    const festivals = await getFestivals();
+// async function loadEventCards() {
+//     const festivals = await getFestivals();
 
-    let allEventCardsHTML = '';
-    let counter = 0;
+//     let allEventCardsHTML = '';
+//     let counter = 0;
 
-    festivals.forEach(festival => {
-        allEventCardsHTML += renderEvents(festival);
-        counter++;
-        allEventCardsHTML = checkAd(allEventCardsHTML, counter);
-    });
+//     festivals.forEach(festival => {
+//         allEventCardsHTML += renderEvents(festival);
+//         counter++;
+//         allEventCardsHTML = checkAd(allEventCardsHTML, counter);
+//     });
 
-    const eventCardsContainer = $('#event-cards-container');
-    eventCardsContainer.innerHTML = allEventCardsHTML;
+//     const eventCardsContainer = $('#event-cards-container');
+//     eventCardsContainer.innerHTML = allEventCardsHTML;
 
-    applyDarkModeToEventCards();
-}
+//     applyDarkModeToEventCards();
+// }
 
 async function loadFilteredEventCards(festivals) {
+    festivals = festivals || await getFestivals();
+
     let allEventCardsHTML = '';
     let counter = 0;
 
@@ -209,7 +211,7 @@ async function loadFilteredEventCards(festivals) {
 }
 
 function checkAd(allEventCardsHTML, counter) {
-    if (counter % 6 === 0) {
+    if(counter % 6 === 0) {
         const adIndex = Math.floor((counter / 6 - 1) % ads.length);
         const ad = ads[adIndex];
         return allEventCardsHTML + renderAdBlock(ad);
@@ -217,7 +219,7 @@ function checkAd(allEventCardsHTML, counter) {
     return allEventCardsHTML;
 }
 
-function renderEvents({ LAND, id, NAME, DATUM, STADT, KATEGORIE }) {
+function renderEvents({ LAND, id, NAME, DATUM, KATEGORIE }) {
     return /*html*/ `
         <div class="event-card column" onclick="openSelectedFestival(${id})">
             <div class="column card-info">
@@ -241,7 +243,7 @@ function renderEvents({ LAND, id, NAME, DATUM, STADT, KATEGORIE }) {
 }
 
 function processDate(DATUM) {
-    if (DATUM.includes('-')) {
+    if(DATUM.includes('-')) {
         const [start, end] = DATUM.split('-').map(s => s.trim());
         return `${highlightIfContains(start, currentInput)} - ${highlightIfContains(end, currentInput)}`;
     }
@@ -271,6 +273,8 @@ function renderAdBlock(ad) {
 async function openSelectedFestival(id) {
     const selectedFestival = await checkFestivalId(id);
     renderSelectedFestival(selectedFestival);
+
+    document.body.style.overflow = 'hidden';
 }
 
 async function checkFestivalId(id) {
@@ -358,6 +362,8 @@ function renderSelectedEventInfo(LAND, BUNDESLAND, STADT, GENRES, DAUER, KATEGOR
 function closeSelectedFestival() {
     $('#selected-festival-container-upper').classList.add('d-none');
     $('#selected-festival-container-upper').innerHTML = '';
+
+    document.body.style.overflow = 'auto';
 }
 
 

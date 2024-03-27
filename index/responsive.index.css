@@ -1,3 +1,5 @@
+/* RESPONSIVE STYLE WIDTH */
+
 @media(max-width: 1000px) {
     .selected-event-name {
         font-size: 2.5rem;
@@ -147,5 +149,35 @@
 
     .selected-event-card > div {
         padding: 15px 5px;
+    }
+}
+
+@media(max-width: 350px) {
+     .event-country-container img {
+        width: 25px;
+    }
+
+    .event-name,
+    .event-date {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+/* RESPONSIVE STYLE HEIGHT */
+
+@media(max-height: 800px) {
+    .selected-event-name {
+        font-size: 2.5rem;
+        padding: 20px 0;
+    }
+
+    .selected-event-date-container div {
+        height: 7rem;
+    }
+
+    .selected-card-info > div span {
+        font-size: 1rem;
     }
 }

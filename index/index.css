@@ -220,7 +220,7 @@
 
 .event-date {
     align-self: center;
-    text-align: center;
+    text-align: right;
     font-weight: 600;
     font-size: 1.3rem;
 }
@@ -301,7 +301,7 @@
 .selected-event-card {
     position: relative;
     box-sizing: border-box;
-    height: 80vh;
+    height: 90vh;
     width: 80%;
     max-width: 1200px;
     padding: 10px;
@@ -344,7 +344,6 @@
 
 .selected-card-info {
     box-sizing: border-box;
-    font-size: 0.8rem;
     padding: 5px 0;
     width: 100%;
 }
@@ -433,7 +432,7 @@
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: var(--clr-pink);
-    z-index: 999;
+    z-index: 10;
 }
 
 #scroll-up:hover {
