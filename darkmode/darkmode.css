@@ -35,18 +35,9 @@
 }
 
 .dark-mode-filter {
-    background-color: var(--clr-pink) !important;
-    color: var(--clr-white) !important;
-}
-
-.dark-mode-filter-list-card {
     background-color: var(--clr-bg-dark-mode) !important;
 }
 
-.dark-mode-filter-list-item {
+.dark-mode-single-filter {
     color: var(--clr-white) !important;
-}
-
-.dark-mode-filter-list-item:hover {
-    color: var(--clr-pink) !important;
 }

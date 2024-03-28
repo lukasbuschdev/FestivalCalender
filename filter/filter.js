@@ -11,6 +11,7 @@ function openFilters() {
     document.body.style.overflow = 'hidden';
 
     renderFilterContent(popupContainer);
+    checkFilterDarkMode();
 }
 
 

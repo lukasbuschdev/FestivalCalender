@@ -40,22 +40,14 @@ function deactivateDarkMode() {
 }
 
 function selectedCardDarkMode() {
-    if(darkModeActive) return $('.selected-event-card').classList.add('dark-mode-selected-card');
-    if(!darkModeActive) return $('.selected-event-card').classList.remove('dark-mode-selected-card'); 
+    $('.selected-event-card').classList.toggle('dark-mode-selected-card', darkModeActive);
 }
 
-function filterListDarkMode() {
-    const allItems = $$('.list-item-container span');
-
-    if(darkModeActive) {
-        $('#filter-list-card').classList.add('dark-mode-filter-list-card');
-        allItems.forEach(item => item.classList.add('dark-mode-filter-list-item')); 
-    } 
-
-    if(!darkModeActive) {
-        $('#filter-list-card').classList.remove('dark-mode-filter-list-card');
-        allItems.forEach(item => item.classList.remove('dark-mode-filter-list-item'));
-    } 
+function checkFilterDarkMode() {
+    const allFilterSpans = $$('.single-filter > span');
+    
+    $('.popup-content').classList.toggle('dark-mode-filter', darkModeActive);
+    allFilterSpans.forEach(filterSpan => filterSpan.classList.toggle('dark-mode-single-filter', darkModeActive));
 }
 
 function applyDarkModeToEventCards() {
