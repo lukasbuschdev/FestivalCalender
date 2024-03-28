@@ -1,0 +1,158 @@
+/* FILTER BUTTONS SECTION */
+
+.filter-btn-container {
+    justify-content: flex-start;
+}
+
+.btn-containter button {
+    box-sizing: border-box;
+    padding: 7px 15px 10px 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    border: 1px solid var(--clr-pink);
+    border-radius: 999px;
+    background-color: var(--clr-pink);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)
+}
+
+.btn-containter button:hover {
+    background-color: var(--clr-pink-hover);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+
+
+/* FILTER POPUP SECTION */
+
+#filter-popup-container {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 9;
+    background-color: rgba(200, 200, 200, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+.popup-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 90vh;
+    width: 90%;
+    max-width: 700px;
+    padding: 15px 20px;
+    background-color: var(--clr-bg-light);
+    z-index: 100;
+    border: 2px solid var(--clr-pink);
+    border-radius: 20px;
+    overflow: hidden;
+    gap: 35px;
+}
+
+.single-filter {
+    width: 85%;
+    max-width: 400px;
+}
+
+.single-filter span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+
+/* DROP DOWN STYLING SECTION */
+
+.drp-input {
+    width: 100%;
+    height: 45px;
+    border: 2px solid var(--clr-pink);
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    align-self: center;
+    padding: 11px 0 3px 15px;
+    background-color: var(--clr-white);
+}
+
+.drp-input:hover {
+    cursor: pointer;
+    border-color: var(--clr-pink-hover);
+}
+
+.drp-options-container {
+
+}
+
+.drp-options {
+
+}
+
+
+
+/* FILTER PRICE SECTION */
+
+.filter-price {
+    justify-content: space-between;
+}
+
+.filter-price input {
+    height: 30px;
+    border: 2px solid var(--clr-pink);
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    align-self: center;
+    padding: 11px 0 3px 15px;
+    background-color: var(--clr-white);
+}
+
+.filter-price input:hover {
+    cursor: pointer;
+    border-color: var(--clr-pink-hover);
+}
+
+
+
+/* SEARCH AND DELETE BUTTONS SECTION */
+
+.search-delete {
+    justify-content: space-between;
+}
+
+.search-delete button {
+    height: 50px;
+    width: 140px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 999px;
+    color: var(--clr-white);
+    background-color: var(--clr-pink);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 0 5px 0;
+}
+
+.search-delete button:hover {
+    cursor: pointer;
+    background-color: var(--clr-pink-hover);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}

@@ -1,9 +1,7 @@
 /* DARK MODE */
 
 .dark-mode-btn {
-    position: absolute;
     box-sizing: border-box;
-    right: 5%;
     padding: 5px;
     height: 40px;
     border-radius: 999px;
