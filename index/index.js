@@ -1,10 +1,5 @@
 // MAIN CONTENT SECTION
 
-const getFestivals = async () => {
-    const data = await getData();
-    return data;
-};
-
 async function loadContent() {
     loadFilters();
     loadFilteredEventCards();
@@ -16,7 +11,7 @@ function loadFilters() {
         <div class="btn-containter row">
             <div class="filter-btn-container row gap-15">
                 <button onclick="openFilters()">Filter</button>
-                <button id="reset-filter-btn" class="" onclick="resetSelectedFilter()">Filter löschen</button>
+                <button id="reset-filter-btn" class="d-none" onclick="resetSelectedFilter()">Filter löschen</button>
             </div>
             <img class="dark-mode-btn row gap-5" onclick="checkDarkMode()" src="../assets/icons/moon.png">
         </div>
@@ -24,7 +19,7 @@ function loadFilters() {
 }
 
 async function loadFilteredEventCards(festivals) {
-    festivals = festivals || await getFestivals();
+    festivals = festivals || await getData();
 
     let allEventCardsHTML = '';
     let counter = 0;
@@ -114,11 +109,10 @@ async function openSelectedFestival(id) {
 
 async function checkFestivalId(id) {
     const festivalId = parseInt(id);
-    const festivals = await getFestivals();
+    const festivals = await getData();
     const festivalExists = festivals.find(festival => festival.id === festivalId);    
     
-    if(festivalExists) return festivalExists;
-    if(!festivalExists) return error(`No festival found!`);    
+    if(festivalExists) return festivalExists; 
 }
 
 function renderSelectedFestival(selectedFestival) {
