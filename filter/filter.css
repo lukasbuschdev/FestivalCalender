@@ -82,19 +82,42 @@ input[type=number] {
 .drp-input {
     width: 100%;
     height: 45px;
+    justify-content: space-between;
     border: 2px solid var(--clr-pink);
     border-radius: 999px;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: 'Zen Maru Gothic', sans-serif;
-    align-self: center;
-    padding: 11px 0 3px 15px;
     background-color: var(--clr-white);
 }
 
 .drp-input:hover {
     cursor: pointer;
     border-color: var(--clr-pink-hover);
+}
+
+.drp-input span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    padding: 1px 0 3px 15px;
+    caret-color: transparent;
+}
+
+.drp-input span:focus {
+    outline: none;
+}
+
+.drp-input span:empty::after {
+    content: attr(data-placeholder);
+    color: var(--clr-placeholder);
+}
+
+.drp-input img {
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+    margin-right: 15px;
 }
 
 .drp-options-container {
@@ -114,14 +137,15 @@ input[type=number] {
 }
 
 .filter-price input {
-    height: 30px;
+    height: 35px;
+    width: 100%;
     border: 2px solid var(--clr-pink);
     border-radius: 999px;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Zen Maru Gothic', sans-serif;
     align-self: center;
-    padding: 11px 0 3px 15px;
+    padding: 3px 0 5px 15px;
     background-color: var(--clr-white);
 }
 

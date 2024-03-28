@@ -24,7 +24,7 @@ function renderFilterContent(popupContainer) {
 
             ${renderNameFilter()}
             ${renderCountryFilter()}
-            ${renderCategoryFilter()}
+            ${renderGenreFilter()}
             ${renderDateFilter()}
             ${renderPriceFilter()}
             ${renderSearchDeleteBtns()}
@@ -41,8 +41,11 @@ function renderNameFilter() {
         <div class="single-filter column gap-10">
             <span>Name</span>
             <div class="drp-wrapper">
-                <div class="drp-input">Wähle einen Namen...</div>
-                <div class="drp-options-container"></div>
+                <div class="drp-input row">
+                    <span contenteditable="true" data-placeholder="Wähle einen Namen..."></span>
+                    <img src="../assets/icons/arrow-down.png">
+                </div>
+                <div id="drp-name" class="drp-options-container"></div>
             </div>
         </div>
     `;
@@ -53,20 +56,26 @@ function renderCountryFilter() {
         <div class="single-filter column gap-10">
             <span>Land</span>
             <div class="drp-wrapper">
-                <div class="drp-input">Wähle ein Land...</div>
-                <div class="drp-options-container"></div>
+                <div class="drp-input row">
+                    <span contenteditable="true" data-placeholder="Wähle ein Land..."></span>
+                    <img src="../assets/icons/arrow-down.png">
+                </div>
+                <div id="drp-country" class="drp-options-container"></div>
             </div>
         </div>
     `;
 }
 
-function renderCategoryFilter() {
+function renderGenreFilter() {
     return /*html*/ `
         <div class="single-filter column gap-10">
             <span>Genre</span>
             <div class="drp-wrapper">
-                <div class="drp-input">Wähle ein Genre...</div>
-                <div class="drp-options-container"></div>
+                <div class="drp-input row">
+                <span contenteditable="true" data-placeholder="Wähle ein Genre..."></span>
+                    <img src="../assets/icons/arrow-down.png">
+                </div>
+                <div id="drp-genre" class="drp-options-container"></div>
             </div>
         </div>
     `;
@@ -77,7 +86,10 @@ function renderDateFilter() {
         <div class="single-filter column gap-10">
             <span>Datum</span>
             <div class="drp-wrapper">
-                <div class="drp-input">Wähle einen Monat...</div>
+                <div class="drp-input row">
+                <span contenteditable="true" data-placeholder="Wähle einen Monat..."></span>
+                    <img src="../assets/icons/arrow-down.png">
+                </div>
                 <div class="drp-options-container"></div>
             </div>
         </div>
@@ -89,8 +101,8 @@ function renderPriceFilter() {
         <div class="single-filter column gap-10">
             <span>Preis</span>
             <div class="filter-price row gap-10">
-                <input type="number">
-                <input type="number">
+                <input type="number" placeholder="Von">
+                <input type="number" placeholder="Bis">
             </div>
         </div>
     `;
@@ -98,7 +110,7 @@ function renderPriceFilter() {
 
 function renderSearchDeleteBtns() {
     return /*html*/ `
-        <div class="search-delete gap-20">
+        <div class="search-delete row gap-20">
             <button>Suchen</button>
             <button>Löschen</button>
         </div>

@@ -37,6 +37,7 @@ function renderLinks() {
 
         <div class="links-popup-container column gap-20">
             <a href="https://www.flaticon.com/free-icons/up-arrow" title="up arrow icons">"Up arrow icon" created by 'Freepik' - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">"Down arrow icon" created by 'Freepik' - Flaticon</a>
             <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">"Sun icon" created by 'Good Ware' - Flaticon</a>
             <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">"Moon icon" created by 'Good Ware' - Flaticon</a>
             <!-- <a href="https://www.flaticon.com/free-icons/calendar" title="calendar icons">"Calendar icon" created by 'Freepik' - Flaticon</a> -->
